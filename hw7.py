@@ -1,22 +1,20 @@
-
-# TASK_1
-# Create a simple function called favorite_movie, which takes a string containing the name of your favorite movie. The function should then print “My favorite movie is named {name}”.
-
+#
+# # TASK_1
+# # Create a simple function called favorite_movie, which takes a string containing the name of your favorite movie. The function should then print “My favorite movie is named {name}”.
+#
 def favorite_movie(name):
      if  name.strip():
          print(f'My favorite movie is named {name}')
      else:
          favorite_movie(input('Enter your favorite movie: '))
-
 favorite_movie('')
-
-
-# TASK_2
-# Create a function called make_country, which takes in a country’s name and capital as parameters. Then create a dictionary from those two, with ‘name’ as a key and ‘capital’ as a parameter. Make the function print out the values of the dictionary to make sure that it works as intended.
-
+#
+#
+# # TASK_2
+# # Create a function called make_country, which takes in a country’s name and capital as parameters. Then create a dictionary from those two, with ‘name’ as a key and ‘capital’ as a parameter. Make the function print out the values of the dictionary to make sure that it works as intended.
+#
 def make_country(**kwargs):
     return print(kwargs)
-
 make_country(German = 'Berlin', Ukraine = 'Kyiv')
 
 # TASK_3
@@ -37,7 +35,7 @@ def make_operation(*args):
         res = 1
         for a in args[1:]:
             res *= a
-        print(res)
+            print(res)
 
     elif '/' in args:
         res = args[1]
@@ -49,3 +47,4 @@ make_operation('+', 7, 7, 2)
 make_operation('-', 5, 5, -10, -20)
 make_operation('*', 7, 7, 2, 5)
 make_operation('/', 2, 3)
+
