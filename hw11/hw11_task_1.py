@@ -1,6 +1,9 @@
 # Task 1
 #
-# Make a class structure in python representing people at school. Make a base class called Person, a class called Student, and another one called Teacher. Try to find as many methods and attributes as you can which belong to different classes, and keep in mind which are common and which are not. For example, the name should be a Person attribute, while salary should only be available to the teacher.
+# Make a class structure in python representing people at school. Make a base class called Person, a class called Student,
+# and another one called Teacher. Try to find as many methods and attributes as you can which belong to different classes,
+# and keep in mind which are common and which are not. For example, the name should be a Person attribute,
+# while salary should only be available to the teacher.
 
 class Person():
     def __init__(self, first_name, last_name, age, phone_number, email):
