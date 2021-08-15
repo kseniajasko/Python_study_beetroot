@@ -14,10 +14,14 @@ class TVController():
             self.channels = channels
 
     def first_channel(self):
-        return print(self.channels[0])
+        self.active_channel = self.channels[0]
+        return self.active_channel
+
 
     def last_channel(self):
-        return print(self.channels[-1])
+        self.active_channel = self.channels[-1]
+        return self.active_channel
+
 
     def is_exist(self, search_channel):
         for i in self.channels:
@@ -94,5 +98,6 @@ controller.turn_channel(1)
 
 controller.next_channel()
 controller.previous_channel()
+
 
 controller.current_channel()
