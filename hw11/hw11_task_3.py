@@ -69,7 +69,6 @@ class ProductStore:
                 self.products[identifier]['discount'] = percent
                 print(self.products)
 
-
         else:
             for identifier in identifiers:
                 for product in self.products:
