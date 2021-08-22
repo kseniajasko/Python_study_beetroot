@@ -31,9 +31,9 @@ class Fraction:
     def __repr__(self):
         return self.__str__()
 
-x = Fraction(1)
-y = Fraction(5)
-z = Fraction(6)
+x = Fraction(1/2)
+y = Fraction(5/8)
+z = Fraction(2/5)
 
 print(x+y+z)
 print(x-y-z)

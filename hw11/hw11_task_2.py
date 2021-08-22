@@ -4,6 +4,7 @@
 # square_nums (takes a list of integers and returns the list of squares)
 # remove_positives (takes a list of integers and returns it without positive numbers
 # filter_leaps (takes a list of dates (integers) and removes those that are not 'leap years'
+from calendar import isleap
 
 class Mathematician:
     list_1 = []
@@ -38,7 +39,8 @@ class Mathematician:
             print("Error, empty list")
             return
 
-        a = [i for i in self.list_1 if not i % 4 and i > 0]
+       # a = [i for i in self.list_1 if not i % 4 and i > 0]
+        a = [i for i in self.list_1 if isleap(i) and i>0]
         return print(a)
 
 m = Mathematician([-2000, 2004, -2005, -1])
