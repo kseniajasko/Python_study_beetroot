@@ -25,24 +25,17 @@ class MyIterable:
 
 c = MyIterable(['kj', '88885khv', 'fsagag', 'dgh', 'lshlshm'])
 
+print(next(c))
+print(next(c))
+
 print(c[0])
 print(c[-1])
-print(c[0:5:2])
+#print(c[0:5:2])
 
 for k in range(1, 5):
     print((k, c.add()))
 
-# for j in c:
-#     print(j)
 
-# # замість for-in можна використати
-# iterator = iter(c)
-# while True:
-#     try:
-#         x = iterator.__next__()
-#         print(x, end=' ')
-#     except StopIteration as e:
-#         break
 
 
 
