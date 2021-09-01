@@ -25,3 +25,10 @@ nums_2 = [1, -2, 3, -4, 5]
 
 print(choose_func(nums_1, square_nums, remove_negatives))
 print(choose_func(nums_2, square_nums, remove_negatives))
+
+
+# def choose_func(nums: list, func1, func2):
+#     if len(nums) == len([i for i in nums if i > 0]):
+#         return func1(nums)
+#     else:
+#         return func2(nums)
