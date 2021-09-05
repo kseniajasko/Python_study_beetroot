@@ -1,41 +1,66 @@
-# Create your own implementation of an iterable, which could be used inside for-in loop.
-# Also, add logic for retrieving elements using square brackets syntax.
+from functools import wraps
 
-class MyIterable:
-    def __init__(self, list_1):
-        self.list_1 = list_1
-        self.current = 0
+class TypeDecorators:
+    def to_int(f):
+        @wraps(f)
+        def wrapper(x):
+            try:
+                return int(f(x))
+            except ValueError:
+                return None
+        return wrapper
 
-    def __iter__(self):
-        return self
+    def to_str(f):
+        @wraps(f)
+        def wrapper(x):
+            try:
+                return str(f(x))
+            except ValueError:
+                return None
+        return wrapper
 
-    def __getitem__(self, index):
-        return (f'{index} of element {self.list_1[index]}')
+    def to_float(f):
+        @wraps(f)
+        def wrapper(x):
+            try:
+                return float(f(x))
+            except ValueError:
+                return None
+        return wrapper
 
-    def __next__(self):
-        if self.current > len(self.list_1)-1:
-            raise StopIteration
-        else:
-            self.current += 1
-            return self.list_1[self.current - 1]
+    def to_bool(f):
+        @wraps(f)
+        def wrapper(*args):
+            try:
+                return bool(f(args))
+            except ValueError:
+                return None
+        return wrapper
 
-    def add(self):
-        self.list_1 = ['not-'+i  if len(i) <= 15 else i for i in self.list_1]
-        return self.list_1
+@TypeDecorators.to_int
+def do_int(x):
+    return x
 
-c = MyIterable(['kj', '88885khv', 'fsagag', 'dgh', 'lshlshm'])
+@TypeDecorators.to_str
+def do_str(x):
+    return x
 
-print(next(c))
-print(next(c))
+@TypeDecorators.to_float
+def do_float(x):
+    return x
 
-print(c[0])
-print(c[-1])
-#print(c[0:5:2])
+@TypeDecorators.to_bool
+def do_bool(x):
+    return x
 
-for k in range(1, 5):
-    print((k, c.add()))
+print(do_int('25'))
+print(type(do_int('25')))
 
+print(do_str(25))
+print(type(do_str(25)))
 
+print(do_float('25'))
+print(type(do_float('25')))
 
-
-
+print(do_bool('**', 'fjsg'))
+print(type(do_bool('**')))

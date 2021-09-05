@@ -1,34 +1,41 @@
-# Write a function called `choose_func` which takes a list of nums and 2 callback functions. If all
-# nums inside the list are positive, execute the first function on that list and return the result of it.
-# Otherwise, return the result of the second one
+# Create a Fraction class, which will represent all basic arithmetic
+# logic for fractions (+, -, /, *) with appropriate checking and error handling
 
-def choose_func(nums: list, func1, func2):
-    b = False
-    for a in nums:
-        if a < 0:
-            b = True
-            break
-    if b == False:
-        return func1(nums)
-    else:
-        return func2(nums)
+class Fraction:
+    def __init__(self, value):
+        self.value = value
 
+    def __add__(self, other):
+        if not isinstance(other, type(self)):
+            raise ValueError('wrong type for operand')
+        return Fraction(self.value + other.value)
 
-def square_nums(nums):
-    return [num ** 2 for num in nums]
+    def __sub__(self, other):
+        if not isinstance(other, type(self)):
+            raise ValueError('wrong type for operand')
+        return Fraction(self.value - other.value)
 
-def remove_negatives(nums):
-    return [num for num in nums if num > 0]
+    def __mul__(self, other):
+        if not isinstance(other, type(self)):
+            raise ValueError('wrong type for operand')
+        return Fraction(self.value*other.value)
 
-nums_1 = [1, 2, 3, 4, 5]
-nums_2 = [1, -2, 3, -4, 5]
+    def __truediv__(self, other):
+        if not isinstance(other, type(self)):
+            raise ValueError('wrong type for operand')
+        return Fraction(self.value/other.value)
 
-print(choose_func(nums_1, square_nums, remove_negatives))
-print(choose_func(nums_2, square_nums, remove_negatives))
+    def __str__(self):
+        return f"Fraction: {self.value}"
 
+    def __repr__(self):
+        return self.__str__()
 
-# def choose_func(nums: list, func1, func2):
-#     if len(nums) == len([i for i in nums if i > 0]):
-#         return func1(nums)
-#     else:
-#         return func2(nums)
+x = Fraction(1/2)
+y = Fraction(5/8)
+z = Fraction(2/5)
+
+print(x+y+z)
+print(x-y-z)
+print(y*z)
+print(z/y)

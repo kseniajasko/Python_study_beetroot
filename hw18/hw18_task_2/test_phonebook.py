@@ -13,7 +13,6 @@ class TestPhonebookMethods(unittest.TestCase):
 
     def test_add(self):
         test_add_data = phonebook_methods.add('0956380996', 'Ok', 'Sat', 'Kyiv')
-        print(test_add_data)
         self.setUp()
         self.assertEqual(test_add_data, self.data)
 

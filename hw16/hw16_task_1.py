@@ -1,19 +1,21 @@
-# Create your own implementation of a built-in function enumerate, named `with_index`,
-# which takes two parameters: `iterable` and `start`, default is 0.
-# Tips: see the documentation for the enumerate function
+# Create a class method named `validate`, which should be called from the `__init__` method
+# to validate parameter email, passed to the constructor. The logic inside the `validate`
+# method could be to check if the passed email parameter is a valid email string.
 
-def with_index(iterable = 0, start = 0):
-    list_0 = []
-    if iterable == 0:
-        return [(start, iterable)]
+import re
 
-    for i in iterable:
-        list_0.append((start, i))
-        start += 1
-    return list_0
+class Email:
+    def __init__(self, email):
+        self.email = self.validate(email)
 
-a = ['gdh', 'agg', 25, 36]
-print(with_index(a))
+    def validate(self, email):
+        if (re.match("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", email)):
+            print(f'This is a valid email address')
+            return email
+        else:
+            print(f"This is not a valid email address")
 
-
-
+Email('satur@gmail.com')
+Email('satur@gmail.com.ua')
+Email('saturmailcom.ua')
+Email('satur@gmailcom')

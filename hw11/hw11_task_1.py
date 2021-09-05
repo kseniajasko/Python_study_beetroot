@@ -1,33 +1,18 @@
 # Task 1
 #
-# Make a class structure in python representing people at school. Make a base class called Person, a class called Student,
-# and another one called Teacher. Try to find as many methods and attributes as you can which belong to different classes,
-# and keep in mind which are common and which are not. For example, the name should be a Person attribute,
-# while salary should only be available to the teacher.
+# A Person class
+# Make a class called Person. Make the __init__() method take firstname, lastname, and age as parameters and add them as attributes. Make another method called talk() which makes prints a greeting from the person containing, for example like this: “Hello, my name is Carl Johnson and I’m 26 years old”.
 
 class Person():
-    def __init__(self, first_name, last_name, age, phone_number, email):
-        self.first_name = first_name
-        self.last_name = last_name
+
+    def __init__(self, firstname, lastname, age):
+        self.firstname = firstname
+        self.lastname = lastname
         self.age = age
-        self.phone_number = phone_number
-        self.email = email
 
-    def test1(self):
-        return print(self.first_name, self.last_name, self.age, self.phone_number, self.email)
+    def talk(self):
+        print(f'Hello, my name is {self.firstname} {self.lastname} and I’m {self.age} years old')
 
-class Student(Person):
-    def __init__(self, first_name, last_name, age, phone_number, email, number_class):
-        super().__init__(first_name, last_name, age, phone_number, email)
-        self.number_class = number_class
+person1 = Person('Oksana', 'Satur', '26')
+print(person1.talk())
 
-class Teacher(Person):
-    def __init__(self, first_name, last_name, age, phone_number, email, salary):
-        super().__init__(first_name, last_name, age, phone_number, email)
-        self.salary = salary
-
-Ok = Student("Ok", "Bor", "15", "056895", "@ghgj", "5")
-Mp = Teacher("MP", "Dor", "45", "89524", "@pkn", "1000")
-a = Ok.test1()
-b = Mp.test1()
-#print(issubclass(Student, Person))

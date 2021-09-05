@@ -1,19 +1,26 @@
-# Write a decorator that takes a list of stop words and replaces them
-# with *inside the decorated function
+# Write a Python program to access a function inside a function (Tips: use function, which returns another function)
+# Ex_1
+def test(a):
+     def add(b):
+          nonlocal a
+          a += 1
+          return a+b
+     return add
+c = test(4)
+print(c(2))
+print(c(10))
+print(c(10))
 
-def stop_words(words: list):
-    def search(func):
-        def search_1(name):
-            a = func(name)
-            for word in words:
-                a = a.replace(word, '*')
-            return a
-        return search_1
-    return search
+# Ex_2
+def f1():
+     s = 'I love Python'
 
+     def f2():
+          nonlocal s
+          s = 'You too'
+          print(s)
 
-@stop_words(['pepsi', 'BMW'])
-def create_slogan(name: str) -> str:
-    return f"{name} drinks pepsi in his brand new BMW!"
+     f2()
+     print(s)
 
-print(create_slogan("Steve"))
+f1()
