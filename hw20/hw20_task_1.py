@@ -14,11 +14,12 @@ class File(object):
         return cls.counter
 
     def __init__(self, file_name, method):
-        File.counter += 1
-        self.file_obj = open(file_name, method)
-        logging.warning(f'Getting the parametres: {File.counter}')
+        self.file_name = file_name
+        self.method = method
 
     def __enter__(self):
+        File.counter += 1
+        self.file_obj = open(self.file_name, self.method)
         logging.warning(f'Opens the file and returns it: {File.counter}')
         return self.file_obj
 
@@ -42,7 +43,7 @@ if __name__ == '__main__':
     write('One', 'demo.txt')
     #write('Two', 'demo.txt')
     reads('demo.txt')
-    reads('demo1.txt')
+    #reads('demo1.txt')
 
     print(File.get_counter())
 
