@@ -10,6 +10,7 @@
 # - group_by_year(year: int) - returns a list of all the books grouped by the specified year
 # All 3 classes must have a readable __repr__ and __str__ methods.
 # Also, the book class should have a class variable which holds the amount of all existing books
+from typing import Union
 
 class Author:
     def __init__(self, author_name: str, author_country: str, birthday: int, author_books: list = []):
@@ -31,10 +32,10 @@ class Book:
         self.year = year
         self.author = author
 
-    def __repr__(self):
+    def __repr__(self)-> str:
         return f'({self.books_name}, {self.year}, {self.author})'
 
-    def __str__(self):
+    def __str__(self)-> str:
         return f'({self.books_name}, {self.year}, {self.author})'
 
 class Library:
@@ -44,16 +45,15 @@ class Library:
         self.books = books
         self.authors = authors
 
-    def __repr__(self):
+    def __repr__(self)-> str:
         return f'{self.l_name}, {self.books}, {self.authors}'
 
-    def __str__(self):
+    def __str__(self)-> str:
         return f'{self.l_name}, {self.books}, {self.authors}'
 
-    def new_book(self, name: str, year: int, author: Author):
+    def new_book(self, name: str, year: int, author: Author) -> Union[str, Book]:
         if not name:
-            print("Empty book name")
-            return
+            return f"Empty book name"
 
         temp_book = Book(name, year, author)
         self.books.append(temp_book)
@@ -87,7 +87,7 @@ l = Library('lib1')
 book_1 = l.new_book('Book1', 1946, author_1)
 book_2 = l.new_book('Book2', 2000, author_2)
 book_3 = l.new_book('Book3', 2010, author_2)
-#book_3 = l.new_book('', 1, author_2)
+book_4 = l.new_book('', 1, author_2)
 print(l)
 print(l.group_by_author(author_2))
 print(f'Кількість всіх книг: {l.sum_books}')
