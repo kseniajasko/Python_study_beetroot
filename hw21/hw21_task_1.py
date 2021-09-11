@@ -10,8 +10,9 @@
 # - group_by_year(year: int) - returns a list of all the books grouped by the specified year
 # All 3 classes must have a readable __repr__ and __str__ methods.
 # Also, the book class should have a class variable which holds the amount of all existing books
+
 class Author:
-    def __init__(self, author_name: str, author_country: str, birthday: int, author_books: str = []):
+    def __init__(self, author_name: str, author_country: str, birthday: int, author_books: list = []):
         self.author_name = author_name
         self.author_country = author_country
         self.birthday = birthday
@@ -38,7 +39,7 @@ class Book:
 
 class Library:
     sum_books = 0
-    def __init__(self, l_name: str, books: str = [], authors = []):
+    def __init__(self, l_name: str, books: list = [], authors: list = []):
         self.l_name = l_name
         self.books = books
         self.authors = authors
@@ -71,7 +72,7 @@ class Library:
                 group.append(book)
         return group
 
-    def group_by_year(self, year: int)->list:
+    def group_by_year(self, year: str)->list:
         group = []
         for book in self.books:
             if year == book.year:
