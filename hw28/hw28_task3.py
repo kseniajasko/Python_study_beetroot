@@ -73,7 +73,7 @@ class HashTable:
         for s in self.slots:
             for d in self.data:
                 if self.slots.index(s) == self.data.index(d) and s is not None and d is not None:
-                    representation += f"({s}, {d})\n"
+                    representation += f"{s}: {d}\n"
         return representation
 
     def __str__(self):

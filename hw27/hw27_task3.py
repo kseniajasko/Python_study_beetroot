@@ -56,7 +56,6 @@ if __name__== '__main__':
     q.add_queue(30)
     q.add_queue(40)
     q.add_queue(50)
-    q.del_queue()
     print(q)
     print("Queue Front: " + str(q.front.data))
     print("Queue Rear: " + str(q.rear.data))
