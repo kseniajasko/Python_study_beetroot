@@ -1,16 +1,16 @@
 #Task 1
 
 #Write a function called oops that explicitly raises an IndexError exception when called. Then write another function that calls oops inside a try/except statement to catch the error. What happens if you change oops to raise KeyError instead of IndexError?
-def opps(*args):
-    print(args[len(args) + 1])
-
-
-def opps1(*args):
+def oops(*args):
+    raise IndexError
+    
+def oops_1():
     try:
-        opps(args)
-    except IndexError:
-        print('Error')
-opps1()
+        oops()
+    except Exception as e:
+        print('Exception catched')
+        
+oops_1()
 
 
 #Task 2
