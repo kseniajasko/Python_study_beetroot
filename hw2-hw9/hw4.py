@@ -13,7 +13,7 @@
 s = input()
 
 if len(s) < 2:
-    print(' ')
+    print('')
 elif len(s) == 2:
     print(s)
 else:

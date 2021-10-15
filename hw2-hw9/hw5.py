@@ -37,13 +37,13 @@ while True:
 #For example, the program obtained the word ‘hello’, so it should print 5 random strings(words) that combine characters ‘h’, ‘e’, ‘l’, ‘l’, ‘o’ -> ‘hlelo’, ‘olelh’, ‘loleh’ …
 #Tips: Use random module to get random char from string)
 
-a = input('Введіть слово: ').strip()
-if a and not a.isdigit():
-    i = 0
-    while i < 5:
-        list_1 = [random.choice(a) for _ in range(5)]
+word = input('Введіть слово: ').strip()
+if word and not word.isdigit():
+    counter = 0
+    while counter < 5:
+        list_1 = [random.choice(word) for _ in range(5)]
         print("".join(list_1))
-        i += 1
+        counter += 1
 else:
     print('Слово не введено.')
 
